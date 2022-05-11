@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载中……</title>
+    <script>
+        var $_GET = (function(){
+            var url = window.document.location.href.toString();
+            var u = url.split("?");
+            if(typeof(u[1]) == "string"){
+                u = u[1].split("&");
+                var get = {};
+                for(var i in u){
+                    var j = u[i].split("=");
+                    get[j[0]] = j[1];
+                }
+                return get;
+            } else {
+                return {};
+            }
+        })();
+        if(typeof($_GET['platform']) !="undefined" && $_GET['platform'] != ''){
+    
+            let $p = $_GET['platform'];
+            if($p){
+                window.document.location.href = `http://download.iwn123.top/download.php?platform=${$p}`;
+            }
+            // exit;
+            
+        }else{
+            alert('参数错误');
+            // exit;
+        }
+    </script>
+</head>
+<body>
+    蜗牛音效软件正在下载，请注意浏览器右上角的下载状态变化(^-^)
+</body>
+</html>
